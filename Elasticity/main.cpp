@@ -7,7 +7,7 @@ int main() {
     
     float gravity = 400.f;
     
-    Ball ball(100, 100, 300, 0);
+    Ball ball(100, 100, 250, 0);
     
     sf::Font font;
     
