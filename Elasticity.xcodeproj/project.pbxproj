@@ -6,20 +6,48 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AB215A8C2FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB215A892FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib */; };
+		AB215A8D2FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB215A892FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB215A8E2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB215A8A2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib */; };
+		AB215A8F2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB215A8A2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB215A902FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AB215A8B2FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib */; };
+		AB215A912FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AB215A8B2FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB215A972FB2D6F6001733D2 /* Anonymous_Pro 2.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB215A952FB2D67A001733D2 /* Anonymous_Pro 2.ttf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		AB215A7C2FB2D391001733D2 /* CopyFiles */ = {
+		AB215A922FB2D3BA001733D2 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
+				AB215A912FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib in Embed Libraries */,
+				AB215A8F2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib in Embed Libraries */,
+				AB215A8D2FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib in Embed Libraries */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB215A962FB2D6F0001733D2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				AB215A972FB2D6F6001733D2 /* Anonymous_Pro 2.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB215A7E2FB2D391001733D2 /* Elasticity */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Elasticity; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB215A892FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-window.3.0.2.dylib"; sourceTree = "<group>"; };
+		AB215A8A2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-graphics.3.0.2.dylib"; sourceTree = "<group>"; };
+		AB215A8B2FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.3.0.2.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/3.0.2/lib/libsfml-system.3.0.2.dylib"; sourceTree = "<group>"; };
+		AB215A952FB2D67A001733D2 /* Anonymous_Pro 2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Anonymous_Pro 2.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB215A902FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib in Frameworks */,
+				AB215A8E2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib in Frameworks */,
+				AB215A8C2FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				AB215A802FB2D391001733D2 /* Elasticity */,
+				AB215A882FB2D3BA001733D2 /* Frameworks */,
 				AB215A7F2FB2D391001733D2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +89,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AB215A882FB2D3BA001733D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB215A8A2FB2D3BA001733D2 /* libsfml-graphics.3.0.2.dylib */,
+				AB215A8B2FB2D3BA001733D2 /* libsfml-system.3.0.2.dylib */,
+				AB215A892FB2D3BA001733D2 /* libsfml-window.3.0.2.dylib */,
+				AB215A952FB2D67A001733D2 /* Anonymous_Pro 2.ttf */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -66,7 +109,8 @@
 			buildPhases = (
 				AB215A7A2FB2D391001733D2 /* Sources */,
 				AB215A7B2FB2D391001733D2 /* Frameworks */,
-				AB215A7C2FB2D391001733D2 /* CopyFiles */,
+				AB215A922FB2D3BA001733D2 /* Embed Libraries */,
+				AB215A962FB2D6F0001733D2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -245,7 +289,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sfml/3.0.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = /opt/homebrew/include/;
 			};
 			name = Debug;
 		};
@@ -253,7 +302,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sfml/3.0.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = /opt/homebrew/include/;
 			};
 			name = Release;
 		};
