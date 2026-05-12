@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 
-sf::Color HSVtoRGB(float h, float s, float v) {
+inline sf::Color HSVtoRGB(float h, float s, float v) {
     float c = v * s;
     float x = c * (1 - std::fabs(std::fmod(h / 60.f, 2) - 1));
     float m = v - c;

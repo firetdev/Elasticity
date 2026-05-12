@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "target.hpp"
 
 class Ball {
 private:
@@ -18,5 +19,6 @@ public:
     void render(sf::RenderWindow&);
     void bounce(std::vector<bool>);
     void move(float);
+    bool colliding(Target&);
     void tickColor(float);
 };

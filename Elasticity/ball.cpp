@@ -10,10 +10,9 @@ Ball::Ball(float startX, float startY, float startXVel, float startYVel) {
 }
 
 void Ball::render(sf::RenderWindow& win) {
-    shape.setPosition(sf::Vector2f(x, y));
+    shape.setPosition(sf::Vector2f(x - 15.f, y - 15.f));
     win.draw(shape);
 }
-
 
 void Ball::bounce(std::vector<bool> axes) {
     if (axes[0]) {
@@ -27,6 +26,14 @@ void Ball::bounce(std::vector<bool> axes) {
 void Ball::move(float dt) {
     x += velocity[0] * dt;
     y += velocity[1] * dt;
+}
+
+bool Ball::colliding(Target& target) {
+    float xDist = target.x - x;
+    float yDist = target.y - y;
+    float dist = std::sqrt((xDist * xDist) + (yDist * yDist));
+    
+    return dist <= 15.f + target.radius;
 }
 
 void Ball::tickColor(float dt) {
