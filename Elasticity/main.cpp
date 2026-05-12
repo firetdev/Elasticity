@@ -12,7 +12,7 @@ int main() {
     if (!font.openFromFile("Anonymous_Pro 2.ttf"))
         std::cout << "Failed to load font\n";
     
-    float gravity = 400.f;
+    float gravity = 350.f;
     
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -40,6 +40,11 @@ int main() {
         while (const std::optional event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>())
                 window.close();
+            
+            if (event->is<sf::Event::MouseButtonPressed>() && clicks > 0) {
+                clicks--;
+                ball.shockwave(sf::Vector2f(sf::Mouse::getPosition(window)));
+            }
         }
         
         float dt = clock.restart().asSeconds();
@@ -85,6 +90,8 @@ int main() {
             target.tick(dt);
             if (target.radius < 0)
                 time = 0.75f * time;
+            if (ball.colliding(target))
+                clicks++;
         }
         
         targets.erase(
