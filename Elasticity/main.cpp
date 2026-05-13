@@ -30,7 +30,7 @@ int main() {
     float timer = 0.f;
     int interval = timerDist(gen);
     
-    float deathTimer = 10.5;
+    float deathTimer = 10.99;
     bool dead = false;
     
     sf::Clock clock;
@@ -61,7 +61,7 @@ int main() {
                     timer = 0.f;
                     interval = timerDist(gen);
                     
-                    deathTimer = 10.5;
+                    deathTimer = 10.99;
                     
                     targets = {};
                     
@@ -79,7 +79,7 @@ int main() {
             float dt = clock.restart().asSeconds();
             timer += dt;
             time += dt;
-            if (clicks <= 0)
+            if (clicks <= 0 || ball.getTotalVelocity() < 200)
                 deathTimer -= dt;
             else
                 deathTimer = 10.5;
@@ -156,7 +156,7 @@ int main() {
         }
         window.draw(timeText);
         window.draw(clicksText);
-        if (clicks <= 0)
+        if (clicks <= 0 || ball.getTotalVelocity() < 200)
             window.draw(deathText);
         if (dead)
             window.draw(retryText);

@@ -66,3 +66,7 @@ bool Ball::colliding(Target& target) {
     
     return dist <= radius + target.radius;
 }
+
+float Ball::getTotalVelocity() {
+    return std::sqrt((velocity[0] * velocity[0]) + (velocity[1] * velocity[1]));
+}

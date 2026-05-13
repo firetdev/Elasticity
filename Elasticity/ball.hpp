@@ -27,4 +27,5 @@ public:
     void tickColor(float);
     void shockwave(sf::Vector2f);
     bool colliding(Target&);
+    float getTotalVelocity();
 };
