@@ -9,10 +9,10 @@ private:
     float hue = 0.f;
     sf::CircleShape shape;
     
-    float shockForce = 560.f;
+    float shockForce = 600.f;
     float radius = 15.f;
     float elasticity = 0.84f;
-    float gravityBonus = 1.25;
+    float gravityBonus = 1.3;
 
 public:
     float x;

@@ -11,7 +11,10 @@ private:
 public:
     float x;
     float y;
-    float radius;
+    float radius = 30.f;
+    float shrinkSpeed = 13.f;
+    
+    bool alive = true;
     
     Target(float, float);
     

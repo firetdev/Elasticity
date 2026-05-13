@@ -4,9 +4,8 @@
 Target::Target(float startX, float startY) {
     x = startX;
     y = startY;
-    radius = 30.f;
     
-    shape = sf::CircleShape(30.f);
+    shape = sf::CircleShape(radius);
 }
 
 void Target::render(sf::RenderWindow& win) {
@@ -16,7 +15,7 @@ void Target::render(sf::RenderWindow& win) {
 }
 
 void Target::tick(float dt) {
-    radius -= 15.f * dt;
+    radius -= shrinkSpeed * dt;
     hue += 120.f * dt;
 
     if (hue >= 360.f)
