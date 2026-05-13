@@ -17,16 +17,16 @@ void Ball::render(sf::RenderWindow& win) {
 
 void Ball::bounce(std::vector<bool> axes) {
     if (axes[0]) {
-        velocity[0] = -(elasticity * velocity[0]);
+        velocity.x = -(elasticity * velocity.x);
     }
     if (axes[1]) {
-        velocity[1] = -(elasticity * velocity[1]);
+        velocity.y = -(elasticity * velocity.y);
     }
 }
 
 void Ball::move(float dt) {
-    x += velocity[0] * dt;
-    y += velocity[1] * dt;
+    x += velocity.x * dt;
+    y += velocity.y * dt;
 }
 
 void Ball::tickColor(float dt) {
@@ -50,13 +50,13 @@ void Ball::shockwave(sf::Vector2f pos) {
     float fractionalForce = force / (ratio + 1);
     
     if (xDist < 0)
-        velocity[0] += fractionalForce * ratio;
+        velocity.x += fractionalForce * ratio;
     else
-        velocity[0] -= fractionalForce * ratio;
+        velocity.x -= fractionalForce * ratio;
     if (yDist < 0)
-        velocity[1] += fractionalForce;
+        velocity.y += fractionalForce;
     else
-        velocity[1] -= fractionalForce * gravityBonus;
+        velocity.y -= fractionalForce * gravityBonus;
 }
 
 bool Ball::colliding(Target& target) {
@@ -68,5 +68,5 @@ bool Ball::colliding(Target& target) {
 }
 
 float Ball::getTotalVelocity() {
-    return std::sqrt((velocity[0] * velocity[0]) + (velocity[1] * velocity[1]));
+    return std::sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y));
 }

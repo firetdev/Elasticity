@@ -17,7 +17,7 @@ private:
 public:
     float x;
     float y;
-    std::vector<float> velocity;
+    sf::Vector2f velocity;
     
     Ball(float, float, float, float);
     

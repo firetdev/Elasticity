@@ -105,7 +105,7 @@ int main() {
                 dead = true;
         
             if (ball.y < 584)
-                ball.velocity[1] += gravity * dt;
+                ball.velocity.y += gravity * dt;
             
             ball.tickColor(dt);
             ball.move(dt);
