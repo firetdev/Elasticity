@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "ball.hpp"
 #include "target.hpp"
+#include "shockwave.hpp"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode({800, 600}), "Elasticity", sf::Style::Titlebar | sf::Style::Close);
@@ -22,6 +23,7 @@ int main() {
     
     Ball ball(100, 100, 250, 0);
     std::vector<Target> targets;
+    std::vector<Shockwave> waves;
     
     float time = 0.f;
     int displayTime;
@@ -66,6 +68,7 @@ int main() {
                     deathTimer = 10.99;
                     
                     targets = {};
+                    waves = {};
                     
                     ball.x = 100;
                     ball.y = 100;
@@ -73,6 +76,7 @@ int main() {
                 } else if (clicks > 0) {
                     clicks--;
                     ball.shockwave(sf::Vector2f(sf::Mouse::getPosition(window)));
+                    waves.emplace_back(Shockwave(sf::Vector2f(sf::Mouse::getPosition(window))));
                 }
             }
         }
@@ -153,12 +157,24 @@ int main() {
                 }
             }
             
+            for (auto& wave : waves) {
+                wave.tick(dt);
+            }
+            
             targets.erase(
                 std::remove_if(targets.begin(), targets.end(),
                     [](const Target& t) {
                         return !t.alive;
                     }),
                 targets.end()
+            );
+
+            waves.erase(
+                std::remove_if(waves.begin(), waves.end(),
+                    [](const Shockwave& w) {
+                        return w.radius > w.maxRadius;
+                    }),
+                waves.end()
             );
             
             timeText.setString(std::to_string(displayTime));
@@ -167,6 +183,9 @@ int main() {
         }
 
         window.clear();
+        for (auto& wave : waves) {
+            wave.render(window);
+        }
         ball.render(window);
         for (auto& target : targets) {
             target.render(window);
