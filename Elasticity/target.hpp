@@ -5,7 +5,9 @@
 
 class Target {
 private:
+    float timer = 0.5f;
     float hue = 0.f;
+    
     sf::CircleShape shape;
 
 public:

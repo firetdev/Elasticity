@@ -11,7 +11,7 @@ private:
     
     float shockForce = 600.f;
     float radius = 15.f;
-    float elasticity = 0.84f;
+    float elasticity = 0.86f;
     float gravityBonus = 1.3;
 
 public:
