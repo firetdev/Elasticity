@@ -31,6 +31,7 @@ int main() {
     int interval = timerDist(gen);
     
     float deathTimer = 10.99;
+    bool dying = false;
     bool dead = false;
     
     sf::Clock clock;
@@ -54,6 +55,7 @@ int main() {
             if (event->is<sf::Event::MouseButtonPressed>()) {
                 if (dead) {
                     dead = false;
+                    dying = false;
                     
                     time = 0.f;
                     clicks = 10;
@@ -78,11 +80,18 @@ int main() {
         if (!dead) {
             float dt = clock.restart().asSeconds();
             timer += dt;
-            time += dt;
+            
             if (clicks <= 0 || ball.getTotalVelocity() < 200)
+                dying = true;
+            else
+                dying = false;
+            if (dying)
                 deathTimer -= dt;
             else
                 deathTimer = 10.5;
+            
+            if (!dying)
+                time += dt;
             
             displayTime = static_cast<int>(time);
             
@@ -125,13 +134,21 @@ int main() {
             for (auto& target : targets) {
                 target.tick(dt);
                 if (target.radius < 0) {
-                    time = 0.75f * time;
-                    if (time > 1)
-                        time--;
+                    if (!dying) {
+                        if (0.25f * time < 5)
+                            time = 0.75f * time;
+                        else
+                            time -= 5;
+                        
+                        if (time > 1)
+                            time--;
+                    }
+                    
                     target.alive = false;
                 }
                 if (ball.colliding(target)) {
                     clicks++;
+                    time += 2;
                     target.alive = false;
                 }
             }
@@ -156,7 +173,7 @@ int main() {
         }
         window.draw(timeText);
         window.draw(clicksText);
-        if (clicks <= 0 || ball.getTotalVelocity() < 200)
+        if (dying)
             window.draw(deathText);
         if (dead)
             window.draw(retryText);
