@@ -137,12 +137,12 @@ int main() {
             }
             
             targets.erase(
-                          std::remove_if(targets.begin(), targets.end(),
-                                         [](const Target& t) {
-                                             return !t.alive;
-                                         }),
-                          targets.end()
-                          );
+                std::remove_if(targets.begin(), targets.end(),
+                    [](const Target& t) {
+                        return !t.alive;
+                    }),
+                targets.end()
+            );
             
             timeText.setString(std::to_string(displayTime));
             clicksText.setString(std::to_string(clicks));
