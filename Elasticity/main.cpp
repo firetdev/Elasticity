@@ -56,7 +56,7 @@ int main() {
                     dead = false;
                     
                     time = 0.f;
-                    clicks = 8;
+                    clicks = 10;
                     
                     timer = 0.f;
                     interval = timerDist(gen);
@@ -126,6 +126,8 @@ int main() {
                 target.tick(dt);
                 if (target.radius < 0) {
                     time = 0.75f * time;
+                    if (time > 1)
+                        time--;
                     target.alive = false;
                 }
                 if (ball.colliding(target)) {
