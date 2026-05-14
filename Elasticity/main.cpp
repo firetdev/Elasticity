@@ -85,7 +85,7 @@ int main() {
             float dt = clock.restart().asSeconds();
             timer += dt;
             
-            if (clicks <= 0 || ball.getTotalVelocity() < 200)
+            if (clicks <= 0 || ball.getTotalVelocity() < 240)
                 dying = true;
             else
                 dying = false;
