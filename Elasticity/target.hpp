@@ -14,11 +14,12 @@ public:
     float x;
     float y;
     float radius = 30.f;
-    float shrinkSpeed = 13.f;
+    float shrinkSpeed = 10.f;
+    float bonus;
     
     bool alive = true;
     
-    Target(float, float);
+    Target(float, float, float);
     
     void render(sf::RenderWindow&);
     void tick(float);

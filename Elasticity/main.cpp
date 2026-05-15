@@ -100,7 +100,7 @@ int main() {
             displayTime = static_cast<int>(time);
             
             if (timer >= interval) {
-                targets.emplace_back(Target(xDist(gen), yDist(gen)));
+                targets.emplace_back(Target(xDist(gen), yDist(gen), time));
                 timer = 0.f;
                 interval = timerDist(gen);
             }

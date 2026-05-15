@@ -2,9 +2,10 @@
 #include "target.hpp"
 #include "hsvrgb.hpp"
 
-Target::Target(float startX, float startY) {
+Target::Target(float startX, float startY, float score) {
     x = startX;
     y = startY;
+    bonus = score / 8;
     
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -22,7 +23,8 @@ void Target::render(sf::RenderWindow& win) {
 
 void Target::tick(float dt) {
     if (timer <= 0) {
-        radius -= shrinkSpeed * dt;
+        float shrinkTotal = (shrinkSpeed + bonus < 20.f) ? shrinkSpeed + bonus : 20.f;
+        radius -= shrinkTotal * dt;
         hue += 120.f * dt;
         
         if (hue >= 360.f)
